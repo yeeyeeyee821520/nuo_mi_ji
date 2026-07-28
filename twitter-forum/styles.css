@@ -1,0 +1,68 @@
+/* twitter-forum/styles.css
+   简单响应式样式：侧边栏 + 主区（发帖 + 动态流）
+*/
+:root{
+  --bg:#f5f8fa;
+  --card:#fff;
+  --muted:#657786;
+  --accent:#1da1f2;
+  --radius:12px;
+  --shadow: 0 4px 12px rgba(20,20,20,0.06);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+*{box-sizing:border-box}
+html,body,#app{height:100%;}
+body{margin:0;background:var(--bg);color:#111}
+#app{display:flex;gap:20px;padding:24px;max-width:1100px;margin:0 auto}
+
+/* sidebar */
+.sidebar{width:280px;flex:0 0 280px}
+.profile-card{background:var(--card);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);margin-bottom:16px}
+.avatar{width:96px;height:96px;border-radius:50%;object-fit:cover;border:3px solid #fff;display:block;margin:0 auto 8px}
+.profile-card h2{text-align:center;margin:6px 0;font-size:18px}
+.profile-card button{display:block;margin:8px auto;padding:6px 12px;background:transparent;border:1px solid #e6e6e6;border-radius:999px;cursor:pointer}
+.profile-fields{margin-top:8px}
+.profile-fields label{display:block;font-size:13px;color:var(--muted);margin:8px 0}
+.profile-fields input{width:100%;padding:8px;border-radius:8px;border:1px solid #eee}
+.profile-actions{display:flex;gap:8px;justify-content:center;margin-top:8px}
+.profile-actions button{padding:6px 12px;border-radius:8px;border:0;background:var(--accent);color:#fff;cursor:pointer}
+.profile-actions button.secondary{background:#eee;color:#222}
+
+.chat-card{background:var(--card);border-radius:var(--radius);padding:12px;box-shadow:var(--shadow)}
+.chat-card h3{margin:0 0 8px}
+.chat-window{height:220px;overflow:auto;border-radius:8px;padding:8px;background:#fbfdff;border:1px solid #f0f4f8}
+.chat-line{margin:6px 0;padding:6px 8px;border-radius:8px;background:linear-gradient(90deg,#fff,#f7fbff);font-size:14px}
+.chat-line.me{text-align:right;background:linear-gradient(90deg,#e6f7ff,#fff)}
+.chat-input{display:flex;gap:8px;margin-top:8px}
+.chat-input input{flex:1;padding:8px;border-radius:8px;border:1px solid #eee}
+.chat-input button{padding:8px 12px;border-radius:8px;background:var(--accent);color:#fff;border:0}
+
+/* main */
+.main{flex:1;min-width:0}
+.compose{background:var(--card);border-radius:var(--radius);padding:12px;box-shadow:var(--shadow);margin-bottom:16px}
+.compose textarea{width:100%;min-height:72px;border-radius:8px;border:1px solid #eee;padding:12px;resize:vertical;font-size:14px}
+.compose-actions{display:flex;justify-content:flex-end;margin-top:8px}
+.compose-actions button{background:var(--accent);color:#fff;padding:8px 16px;border-radius:999px;border:0;cursor:pointer}
+
+.feed{display:flex;flex-direction:column;gap:12px}
+.post{background:var(--card);padding:12px;border-radius:12px;box-shadow:var(--shadow)}
+.post .meta{display:flex;gap:12px;align-items:center}
+.post .meta img{width:48px;height:48px;border-radius:50%;object-fit:cover}
+.post .meta .who{font-weight:600}
+.post .content{margin:8px 0 12px;font-size:15px}
+.post .actions{display:flex;gap:12px;border-top:1px solid #f2f4f6;padding-top:8px}
+.action-btn{display:flex;align-items:center;gap:6px;padding:6px 8px;border-radius:999px;background:transparent;border:0;color:var(--muted);cursor:pointer}
+.action-btn.liked{color:var(--accent);font-weight:600}
+.comments{margin-top:8px;padding-left:56px}
+.comment{background:#f9fbff;border-radius:8px;padding:8px;margin-bottom:8px}
+.comment .meta{font-size:13px;color:var(--muted);margin-bottom:6px}
+.comment form{display:flex;gap:8px}
+.comment input{flex:1;padding:6px;border-radius:8px;border:1px solid #eee}
+.comment button{padding:6px 10px;border-radius:8px;background:var(--accent);color:#fff;border:0}
+
+/* small screens */
+@media (max-width:900px){
+  #app{padding:12px}
+  .sidebar{display:none}
+  .main{flex:1}
+}
