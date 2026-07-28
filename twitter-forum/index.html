@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>糯米机 · 仿推特论坛</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <aside class="sidebar">
+      <div class="profile-card">
+        <img id="avatar" class="avatar" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='96' height='96'><rect width='100%' height='100%' fill='%23ddd'/><text x='50%' y='55%' font-size='36' text-anchor='middle' fill='%23777'>U</text></svg>" alt="avatar">
+        <h2 id="username">user</h2>
+        <button id="editProfileBtn">编辑资料</button>
+        <div class="profile-fields" id="profileFields" style="display:none;">
+          <label>昵称<input id="nameInput" placeholder="你的名字"></label>
+          <label>签名<input id="bioInput" placeholder="一句话介绍你自己"></label>
+          <label>头像URL<input id="avatarUrlInput" placeholder="图片链接或留空使用默认"></label>
+          <div class="profile-actions">
+            <button id="saveProfile">保存</button>
+            <button id="cancelProfile">取消</button>
+          </div>
+        </div>
+      </div>
+      <div class="chat-card">
+        <h3>角色聊天</h3>
+        <select id="roleSelect">
+          <option value="小助手">小助手（友好）</option>
+          <option value="智者">智者（沉稳）</option>
+          <option value="逗趣君">逗趣君（笑点）</option>
+        </select>
+        <div id="chatWindow" class="chat-window"></div>
+        <div class="chat-input">
+          <input id="chatInput" placeholder="向角色提问...">
+          <button id="sendChat">发问</button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="compose">
+        <textarea id="postContent" placeholder="发生了什么新鲜事？"></textarea>
+        <div class="compose-actions">
+          <button id="postBtn">发 布</button>
+        </div>
+      </header>
+
+      <section id="feed" class="feed"></section>
+    </main>
+  </div>
+
+  <script src="api.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
