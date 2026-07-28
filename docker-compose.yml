@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  persist:
+    build: ./persist
+    ports:
+      - "4001:4001"
+    environment:
+      - PORT=4001
+      - JWT_SECRET=change-me-in-prod
+    volumes:
+      - ./persist/data:/app/data
+      - ./persist/uploads:/app/uploads
+
+  frontend:
+    image: nginx:stable-alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./frontend_build:/usr/share/nginx/html:ro
+    depends_on:
+      - persist
+
+# Usage:
+# 1) Build and start: docker-compose up --build
+# 2) Frontend static files should be placed in ./frontend_build (or adapt to your build pipeline)
